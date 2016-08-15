@@ -3,6 +3,7 @@ package test.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by tku on 8/15/2016.
@@ -16,6 +17,12 @@ public class GoogleStart extends BasePage {
     private WebElement linkGmail;
 
     public HelpPage goToGmail(){
-
+        linkGmail.click();
+        try {
+            Thread.sleep(2000);//todo delete
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return PageFactory.initElements(driver, HelpPage.class);
     }
 }
