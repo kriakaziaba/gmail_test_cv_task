@@ -3,18 +3,31 @@ package test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
+import test.factory.implMailApi.AppManagerMailApi;
+import test.factory.implWebDriver.AppManagerWebDriver;
+import test.factory.interfaces.AppManager;
 
 /**
  * Created by DiR on 15.08.2016.
  */
 public class BaseTest {
 
-    RemoteWebDriver driver;
+    AppManager app;
 
     //https://crunchify.com/java-mailapi-example-send-an-email-via-gmail-smtp/
     @BeforeSuite
-    public void bfs(){
-        driver = new ChromeDriver();
+    @Parameters({"appType"})
+    public void bfs(String appType){
+        switch (appType){
+            case "selenium":
+                default:
+                app = new AppManagerWebDriver();
+                break;
+            case "api":
+                app = new AppManagerMailApi();
+                break;
+        }
 
     }
 }
