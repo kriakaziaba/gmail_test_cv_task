@@ -1,10 +1,8 @@
 package test;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
-import test.factory.implMailApi.AppManagerMailApi;
+import test.factory.implMailApi.AppManagerApi;
 import test.factory.implWebDriver.AppManagerWebDriver;
 import test.factory.interfaces.AppManager;
 
@@ -25,7 +23,7 @@ public class BaseTest {
                 app = new AppManagerWebDriver();
                 break;
             case "api":
-                app = new AppManagerMailApi();
+                app = new AppManagerApi();
                 break;
         }
 
