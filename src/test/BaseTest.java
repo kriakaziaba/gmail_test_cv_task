@@ -11,6 +11,7 @@ public class BaseTest {
 
     RemoteWebDriver driver;
 
+    //https://crunchify.com/java-mailapi-example-send-an-email-via-gmail-smtp/
     @BeforeSuite
     public void bfs(){
         driver = new ChromeDriver();
