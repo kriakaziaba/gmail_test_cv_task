@@ -2,8 +2,8 @@ package test.pages;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class Letter extends BasePage {
-    public Letter(RemoteWebDriver driver) {
+public class LetterPage extends BasePage {
+    public LetterPage(RemoteWebDriver driver) {
         super(driver);
     }
 }

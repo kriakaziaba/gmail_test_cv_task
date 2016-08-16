@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class AppManagerApi implements AppManager {
 
-    private final Properties mailServerProperties;
+    private static Properties mailServerProperties;
 
     public AppManagerApi(){
         mailServerProperties = System.getProperties();

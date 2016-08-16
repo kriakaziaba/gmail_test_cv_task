@@ -8,7 +8,7 @@ public class PageManager {
     public ChooseAnAccount chooseAnAccount;
     public HelpPage helpPage;
     public Inbox inbox;
-    public Letter letter;
+    public LetterPage letterPage;
     public NewLetter newLetter;
     public PasswordEnter passwordEnter;
 
@@ -17,7 +17,7 @@ public class PageManager {
         chooseAnAccount = initElements(chooseAnAccount);
         helpPage = initElements(helpPage);
         inbox = initElements(inbox);
-        letter = initElements(letter);
+        letterPage = initElements(letterPage);
         newLetter = initElements(newLetter);
         passwordEnter = initElements(passwordEnter);
     }
