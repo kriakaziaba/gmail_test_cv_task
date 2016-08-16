@@ -6,9 +6,6 @@ import test.factory.implMailApi.AppManagerApi;
 import test.factory.implWebDriver.AppManagerWebDriver;
 import test.factory.interfaces.AppManager;
 
-/**
- * Created by DiR on 15.08.2016.
- */
 public class BaseTest {
 
     AppManager app;

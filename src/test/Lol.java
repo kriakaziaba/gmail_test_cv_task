@@ -35,16 +35,17 @@ public class Lol {
 
         // Step2
         System.out.println("\n\n 2nd ===> get Mail Session..");
-        getMailSession = Session.getDefaultInstance(mailServerProperties,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(
-                                "luxsoft1001@gmail.com", "b55rkrgb13");
-                    }
-                });
+        getMailSession = Session.getDefaultInstance(mailServerProperties, null);
+//        getMailSession = Session.getDefaultInstance(mailServerProperties,
+//                new javax.mail.Authenticator() {
+//                    protected PasswordAuthentication getPasswordAuthentication() {
+//                        return new PasswordAuthentication(
+//                                "luxsoft1002@gmail.com", "b55rkrgb13");
+//                    }
+//                });
         generateMailMessage = new MimeMessage(getMailSession);
-        generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress("test1@crunchify.com"));
-        generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("test2@crunchify.com"));
+        generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress("luxofttest1001@gmail.com"));
+//        generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("test2@crunchify.com"));
         generateMailMessage.setSubject("Greetings from Crunchify..");
         String emailBody;
         emailBody = "Test email by Crunchify.com JavaMail API example. " + "<br><br> Regards, <br>Crunchify Admin";
@@ -57,7 +58,7 @@ public class Lol {
 
         // Enter your correct gmail UserID and Password
         // if you have 2FA enabled then provide App Specific Password
-        transport.connect("smtp.gmail.com", "<----- Your GMAIL ID ----->", "<----- Your GMAIL PASSWORD ----->");
+        transport.connect("smtp.gmail.com", "luxofttest1002@gmail.com", "b55rkrgb13");
         transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
         transport.close();
     }

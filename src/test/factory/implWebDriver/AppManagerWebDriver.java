@@ -9,9 +9,6 @@ import test.factory.interfaces.InboxMail;
 import test.factory.interfaces.SendMail;
 import test.pages.PageManager;
 
-/**
- * Created by tku on 8/15/2016.
- */
 public class AppManagerWebDriver implements AppManager {
 
     private PageManager pages;

@@ -3,9 +3,6 @@ package test.pages;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-/**
- * Created by tku on 8/15/2016.
- */
 public class PageManager {
     private RemoteWebDriver driver;
     public ChooseAnAccount chooseAnAccount;
