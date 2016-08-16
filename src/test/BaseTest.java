@@ -20,7 +20,7 @@ public class BaseTest {
         switch (appType){
             case "selenium":
                 default:
-                app = new AppManagerWebDriver();
+                app = new AppManagerWebDriver("xuy");
                 break;
             case "api":
                 app = new AppManagerApi();
