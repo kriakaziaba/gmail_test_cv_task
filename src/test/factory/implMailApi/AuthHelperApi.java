@@ -11,25 +11,20 @@ import java.util.Properties;
 
 public class AuthHelperApi implements AuthHelper {
 
-    private Properties mailServerProperties;
     private Session mailSession;
 
-    public AuthHelperApi(Properties prop, Session session){
-        mailServerProperties = prop;
+    public AuthHelperApi(Session session){
         mailSession = session;
     }
     @Override
     public boolean loginAs(String login, String password) {
-        Session mailSession = this.mailSession;
-
         try {
             Transport transport = mailSession.getTransport("smtp");
             transport.connect("smtp.gmail.com", "luxofttest1002@gmail.com", "b55rkrgb13");
-        } catch (NoSuchProviderException|MessagingException e) {
+            return true;
+        } catch (MessagingException e) {
             e.printStackTrace();
+            return false;
         }
-
-        return mailSession.;
-
     }
 }

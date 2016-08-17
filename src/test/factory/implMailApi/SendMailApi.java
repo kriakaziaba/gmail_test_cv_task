@@ -1,37 +1,45 @@
 package test.factory.implMailApi;
 
+import test.data.Letter;
 import test.factory.interfaces.SendMail;
 
 import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 public class SendMailApi implements SendMail {
-    private MimeMessage generateMailMessage;
 
-    @Override
-    public void sendMail(String to, String subject, String messageBody) {
-        generateMailMessage = new MimeMessage(getMailSession);
-        generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress("luxofttest1001@gmail.com"));
-//        generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("test2@crunchify.com"));
-        generateMailMessage.setSubject("Greetings from Crunchify..");
-        String emailBody;
-        emailBody = "Test email by Crunchify.com JavaMail API example. " + "<br><br> Regards, <br>Crunchify Admin";
-        generateMailMessage.setContent(emailBody, "text/html");
-        System.out.println("Mail Session has been created successfully..");
-        Transport transport = getMailSession.getTransport("smtp");
+    private Session session;
 
-        // Enter your correct gmail UserID and Password
-        // if you have 2FA enabled then provide App Specific Password
-        transport.connect("smtp.gmail.com", "luxofttest1002@gmail.com", "b55rkrgb13");
-        transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
-        transport.close();
+    public SendMailApi(Session mailSession){
+        session = mailSession;
     }
 
     @Override
-    public void sendMailWithFile(String to, String subject, String messageBody, File file) {
+    public void sendMail(Letter letter) {
+        sendMail(letter, null);
+    }
 
+    @Override
+    public void sendMail(Letter letter, File file) {
+        try {
+            MimeMessage generateMailMessage = new MimeMessage(session);
+            generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(letter.to));
+            generateMailMessage.setSubject(letter.subject);
+            generateMailMessage.setContent(letter.message, "text/html");
+            if (file != null)
+                generateMailMessage.setFileName(file.getAbsolutePath());
+
+            Transport transport = session.getTransport("smtp");
+            transport.connect("smtp.gmail.com", letter.from, "b55rkrgb13");
+            transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
+            transport.close();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
 }

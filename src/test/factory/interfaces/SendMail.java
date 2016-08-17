@@ -1,8 +1,10 @@
 package test.factory.interfaces;
 
+import test.data.Letter;
+
 import java.io.File;
 
 public interface SendMail {
-    public void sendMail(String to, String subject, String messageBody);
-    public void sendMailWithFile(String to, String subject, String messageBody, File file);
+    void sendMail(Letter letter);
+    void sendMail(Letter letter, File file);
 }
