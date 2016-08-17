@@ -13,12 +13,12 @@ public class BaseTest {
 
     //https://crunchify.com/java-mailapi-example-send-an-email-via-gmail-smtp/
     @BeforeSuite
-    @Parameters({"appType"})
-    public void bfs(@Optional("api") String appType){
+    @Parameters({"appType", "browser"})
+    public void bfs(@Optional("api") String appType, @Optional("ch") String browser){
         switch (appType){
             case "selenium":
                 default:
-                app = new AppManagerWebDriver("xuy");
+                app = new AppManagerWebDriver(browser);
                 break;
             case "api":
                 app = new AppManagerApi();
