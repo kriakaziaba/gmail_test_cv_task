@@ -1,9 +1,9 @@
-package test.factory.implWebDriver;
+package factory.implWebDriver;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
-import test.data.Letter;
-import test.factory.interfaces.SendMail;
-import test.pages.PageManager;
+import data.Letter;
+import factory.interfaces.SendMail;
+import pages.PageManager;
 
 import java.io.File;
 

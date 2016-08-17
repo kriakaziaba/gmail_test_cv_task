@@ -1,9 +1,9 @@
-package test.factory.implWebDriver;
+package factory.implWebDriver;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
-import test.data.User;
-import test.factory.interfaces.AuthHelper;
-import test.pages.PageManager;
+import data.User;
+import factory.interfaces.AuthHelper;
+import pages.PageManager;
 
 public class AuthHelperWebDriver extends WebDriverBased implements AuthHelper {
     public AuthHelperWebDriver(RemoteWebDriver driver, PageManager pages) {

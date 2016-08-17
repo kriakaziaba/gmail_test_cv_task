@@ -1,6 +1,6 @@
-package test.factory.interfaces;
+package factory.interfaces;
 
-import test.data.User;
+import data.User;
 
 public interface AuthHelper {
     boolean loginAs(User user);

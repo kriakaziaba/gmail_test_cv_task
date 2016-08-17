@@ -1,9 +1,9 @@
-package test.factory.implWebDriver;
+package factory.implWebDriver;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
-import test.data.Letter;
-import test.factory.interfaces.InboxMail;
-import test.pages.PageManager;
+import data.Letter;
+import factory.interfaces.InboxMail;
+import pages.PageManager;
 
 public class InboxMailWebDriver extends WebDriverBased implements InboxMail {
     public InboxMailWebDriver(RemoteWebDriver driver, PageManager pages) {

@@ -19,7 +19,12 @@
                 </configuration>
             </plugin>
         </plugins>
-        <testSourceDirectory>src</testSourceDirectory>
+        <testSourceDirectory>src/test</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>src/resources</directory>
+            </testResource>
+        </testResources>
     </build>
 
     <dependencies>

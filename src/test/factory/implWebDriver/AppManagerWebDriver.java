@@ -1,13 +1,13 @@
-package test.factory.implWebDriver;
+package factory.implWebDriver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import test.factory.interfaces.AppManager;
-import test.factory.interfaces.AuthHelper;
-import test.factory.interfaces.InboxMail;
-import test.factory.interfaces.SendMail;
-import test.pages.PageManager;
+import factory.interfaces.AppManager;
+import factory.interfaces.AuthHelper;
+import factory.interfaces.InboxMail;
+import factory.interfaces.SendMail;
+import pages.PageManager;
 
 public class AppManagerWebDriver implements AppManager {
 

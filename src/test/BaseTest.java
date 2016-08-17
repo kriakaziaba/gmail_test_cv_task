@@ -1,11 +1,9 @@
-package test;
-
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-import test.factory.implMailApi.AppManagerApi;
-import test.factory.implWebDriver.AppManagerWebDriver;
-import test.factory.interfaces.AppManager;
+import factory.implMailApi.AppManagerApi;
+import factory.implWebDriver.AppManagerWebDriver;
+import factory.interfaces.AppManager;
 
 public class BaseTest {
 

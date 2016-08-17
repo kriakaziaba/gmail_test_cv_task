@@ -1,6 +1,6 @@
-package test.factory.interfaces;
+package factory.interfaces;
 
-import test.data.Letter;
+import data.Letter;
 
 import java.io.File;
 

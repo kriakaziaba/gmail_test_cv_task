@@ -1,7 +1,7 @@
-package test.factory.implMailApi;
+package factory.implMailApi;
 
-import test.data.User;
-import test.factory.interfaces.AuthHelper;
+import data.User;
+import factory.interfaces.AuthHelper;
 
 import javax.mail.MessagingException;
 import javax.mail.Session;

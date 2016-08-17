@@ -1,9 +1,9 @@
-package test.factory.implMailApi;
+package factory.implMailApi;
 
-import test.factory.interfaces.AppManager;
-import test.factory.interfaces.AuthHelper;
-import test.factory.interfaces.InboxMail;
-import test.factory.interfaces.SendMail;
+import factory.interfaces.AppManager;
+import factory.interfaces.AuthHelper;
+import factory.interfaces.InboxMail;
+import factory.interfaces.SendMail;
 
 import javax.mail.Session;
 import java.util.Properties;

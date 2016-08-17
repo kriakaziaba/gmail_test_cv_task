@@ -1,4 +1,4 @@
-package test.data;
+package data;
 
 /**
  * Created by DiR on 17.08.2016.

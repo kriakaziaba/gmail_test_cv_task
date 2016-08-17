@@ -1,4 +1,4 @@
-package test.pages;
+package pages;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;

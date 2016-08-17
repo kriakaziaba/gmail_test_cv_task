@@ -1,7 +1,7 @@
-package test.factory.implMailApi;
+package factory.implMailApi;
 
-import test.data.Letter;
-import test.factory.interfaces.InboxMail;
+import data.Letter;
+import factory.interfaces.InboxMail;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;

@@ -1,8 +1,8 @@
-package test.factory.implWebDriver;
+package factory.implWebDriver;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import test.pages.PageManager;
+import pages.PageManager;
 
 public class WebDriverBased {
     protected RemoteWebDriver driver;

@@ -1,7 +1,7 @@
-package test.factory.implMailApi;
+package factory.implMailApi;
 
-import test.data.Letter;
-import test.factory.interfaces.SendMail;
+import data.Letter;
+import factory.interfaces.SendMail;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;

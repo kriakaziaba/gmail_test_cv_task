@@ -1,4 +1,4 @@
-package test.factory.interfaces;
+package factory.interfaces;
 
 public interface AppManager {
     AuthHelper getAuthHelper();

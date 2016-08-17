@@ -1,25 +1,26 @@
-package test;
-
+import data.Letter;
+import data.User;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import test.data.Letter;
-import test.data.User;
 
 public class Test1 extends BaseTest {
 
+    User user1 = new User("luxofttest1001@gmail.com", "b55rkrgb13");
+    User user2 = new User("luxofttest1002@gmail.com", "b55rkrgb13");
+
     @DataProvider
-    public static Object[][] forAuth() {
+    public Object[][] forAuth() {
         return new Object[][]{
-                {new User("luxofttest1001@gmail.com", "b55rkrgb13")},
-                {new User("luxofttest1002@gmail.com", "b55rkrgb13")}
+                {user1},
+                {user2}
         };
     }
     @DataProvider
-    public static Object[][] forRead() {
+    public Object[][] forRead() {
         return new Object[][]{
-                {new User("luxofttest1001@gmail.com", "b55rkrgb13"), "la la la"},
-                {new User("luxofttest1002@gmail.com", "b55rkrgb13"), "blah blah blah"}
+                {user1, "la la la"},
+                {user2, "blah blah blah"}
         };
     }
 
@@ -39,8 +40,8 @@ public class Test1 extends BaseTest {
     @Test
     private void sendMail(){
         Letter letter = new Letter();
-        letter.to = new User("luxofttest1001@gmail.com", "b55rkrgb13");
-        letter.from = new User("luxofttest1002@gmail.com", "b55rkrgb13");
+        letter.to = user1;
+        letter.from = user2;
         letter.subject = "lolka";
         letter.message = "hi";
         app.getAuthHelper().loginAs(letter.from);

@@ -1,4 +1,4 @@
-package test.data;
+package data;
 
 public class Letter  {
     public User to;
