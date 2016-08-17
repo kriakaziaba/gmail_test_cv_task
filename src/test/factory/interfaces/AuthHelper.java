@@ -1,5 +1,7 @@
 package test.factory.interfaces;
 
+import test.data.User;
+
 public interface AuthHelper {
-    boolean loginAs(String login, String password);
+    boolean loginAs(User user);
 }

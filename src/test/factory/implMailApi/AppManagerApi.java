@@ -19,6 +19,7 @@ public class AppManagerApi implements AppManager {
         mailServerProperties.put("mail.imap.port", "465");
         mailServerProperties.put("mail.smtp.port", "587");
         mailServerProperties.put("mail.smtp.auth", "true");
+        mailServerProperties.put("mail.store.protocol", "imaps");
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
         Session session = Session.getDefaultInstance(mailServerProperties, null);
         authHelper = new AuthHelperApi(session);
