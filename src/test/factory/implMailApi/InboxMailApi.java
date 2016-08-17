@@ -28,24 +28,12 @@ public class InboxMailApi implements InboxMail {
             inbox.open(Folder.READ_ONLY);
             for (Message msg : inbox.getMessages()){
                 InternetAddress address = (InternetAddress)msg.getFrom()[0];
-                lt.to.setMail(address.getAddress());
+                lt.getTo().setMail(address.getAddress());
                 Multipart mp = (Multipart) msg.getContent();
                 BodyPart bp = mp.getBodyPart(0);
-                lt.subject = msg.getSubject();
-                lt.message = new String(bp.getContent().toString().getBytes("UTF-8")).trim();
+                lt.setSubject(msg.getSubject());
+                lt.setMessage(new String(bp.getContent().toString().getBytes("UTF-8")).trim());
             }
-//            Address[] in = msg.getFrom();
-//            lt.to.setMail(msg.getFrom()[0].toString());
-//            for (Address address : in) {
-//                System.out.println("FROM:" + address.toString());
-//                lt.to.setMail(address.toString());
-//            }
-//            System.out.println(msg.getSubject());
-//            Multipart mp = (Multipart) msg.getContent();
-//            BodyPart bp = mp.getBodyPart(0);
-//            System.out.println("lol" + bp.getContent());
-//            lt.subject = msg.getSubject();
-//            lt.message = new String(bp.getContent().toString().getBytes("UTF-8")).trim();
         } catch (MessagingException | IOException e) {
             e.printStackTrace();
         }

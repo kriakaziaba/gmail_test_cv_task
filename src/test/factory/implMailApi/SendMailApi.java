@@ -28,15 +28,15 @@ public class SendMailApi implements SendMail {
     public void sendMail(Letter letter, File file) {
         try {
             MimeMessage generateMailMessage = new MimeMessage(session);
-            generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(letter.to.getMail()));
-            generateMailMessage.setSubject(letter.subject);
-            generateMailMessage.setContent(letter.message, "text/html");
+            generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(letter.getTo().getMail()));
+            generateMailMessage.setSubject(letter.getSubject());
+            generateMailMessage.setContent(letter.getMessage(), "text/html");
             if (file != null)
                 generateMailMessage.setFileName(file.getAbsolutePath());
 
             Transport transport = session.getTransport("smtp");
-            transport.connect("smtp.gmail.com", letter.from.getMail(), letter.from.getPassword());
-            transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
+            transport.connect("smtp.gmail.com", letter.getFrom().getMail(), letter.getFrom().getPassword());
+            transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients(    ));
             transport.close();
         } catch (MessagingException e) {
             e.printStackTrace();

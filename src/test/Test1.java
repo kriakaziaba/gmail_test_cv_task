@@ -34,17 +34,13 @@ public class Test1 extends BaseTest {
     private void readMail(User user, String messageExp){
         app.getAuthHelper().loginAs(user);
         Letter letter = app.getInboxMailHelper().openLetterBySubjectContains("Hello world");
-        Assert.assertEquals(letter.message, messageExp);
+        Assert.assertEquals(letter.getMessage(), messageExp);
     }
 
     @Test
     private void sendMail(){
-        Letter letter = new Letter();
-        letter.to = user1;
-        letter.from = user2;
-        letter.subject = "lolka";
-        letter.message = "hi";
-        app.getAuthHelper().loginAs(letter.from);
+        Letter letter = new Letter(user1, user2, "lolka", "hi");
+        app.getAuthHelper().loginAs(letter.getFrom());
         app.getSendMailHelper().sendMail(letter);
     }
 }
