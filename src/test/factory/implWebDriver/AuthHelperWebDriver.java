@@ -29,6 +29,6 @@ public class AuthHelperWebDriver extends WebDriverBased implements AuthHelper {
 
     @Override
     public void logOut() {
-
+        pages.inbox.logOut();
     }
 }

@@ -18,7 +18,7 @@ public class InboxMailWebDriver extends WebDriverBased implements InboxMail {
     }
 
     @Override
-    public void saveAttachedFile(Letter letter) {
-
+    public String saveAttachedFile(Letter letter) {
+        return pages.letterPage.saveFile();
     }
 }

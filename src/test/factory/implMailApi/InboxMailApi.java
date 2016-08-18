@@ -8,9 +8,7 @@ import utils.WorkWithFiles;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 public class InboxMailApi implements InboxMail {
@@ -74,7 +72,8 @@ public class InboxMailApi implements InboxMail {
     }
 
     @Override
-    public void saveAttachedFile(Letter letter) {
+    public String saveAttachedFile(Letter letter) {
         //ignore
+        return "";
     }
 }
