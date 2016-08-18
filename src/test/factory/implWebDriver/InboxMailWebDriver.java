@@ -1,5 +1,6 @@
 package factory.implWebDriver;
 
+import data.User;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import data.Letter;
 import factory.interfaces.InboxMail;
@@ -11,7 +12,13 @@ public class InboxMailWebDriver extends WebDriverBased implements InboxMail {
     }
 
     @Override
-    public Letter openLetterBySubjectContains(String subject) {
-        return null;
+    public Letter openLetterBySubject(User user, String subject) {
+        pages.inbox.openLetterBySubject(subject);
+        return pages.letterPage.getLetterInfo();
+    }
+
+    @Override
+    public void saveAttachedFile(Letter letter) {
+
     }
 }

@@ -5,8 +5,6 @@ import data.Letter;
 import factory.interfaces.SendMail;
 import pages.PageManager;
 
-import java.io.File;
-
 public class SendMailWebDriver extends WebDriverBased implements SendMail {
     public SendMailWebDriver(RemoteWebDriver driver, PageManager pages) {
         super(driver, pages);
@@ -18,7 +16,7 @@ public class SendMailWebDriver extends WebDriverBased implements SendMail {
     }
 
     @Override
-    public void sendMail(Letter letter, File file) {
+    public void sendMail(Letter letter, String fileName) {
 
     }
 }

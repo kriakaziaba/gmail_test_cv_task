@@ -12,7 +12,7 @@ import pages.PageManager;
 public class AppManagerWebDriver implements AppManager {
 
     private PageManager pages;
-    protected RemoteWebDriver driver;
+    public static RemoteWebDriver driver;
     private AuthHelper authHelper;
     private InboxMail inboxMail;
     private SendMail sendMail;
@@ -47,5 +47,10 @@ public class AppManagerWebDriver implements AppManager {
     @Override
     public SendMail getSendMailHelper() {
         return sendMail;
+    }
+
+    @Override
+    public void stop() {
+        driver.quit();
     }
 }

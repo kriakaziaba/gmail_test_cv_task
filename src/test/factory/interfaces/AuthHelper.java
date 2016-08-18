@@ -4,4 +4,6 @@ import data.User;
 
 public interface AuthHelper {
     boolean loginAs(User user);
+
+    void logOut();
 }

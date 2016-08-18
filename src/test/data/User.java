@@ -26,4 +26,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public boolean equals(Object user){
+        User us = (User) user;
+        return mail.equals(us.getMail());
+    }
 }

@@ -13,6 +13,7 @@ public class AppManagerApi implements AppManager {
     private AuthHelperApi authHelper;
     private InboxMailApi inboxMail;
     private SendMailApi sendMail;
+    Session session;
 
     public AppManagerApi(){
         Properties mailServerProperties = System.getProperties();
@@ -21,7 +22,7 @@ public class AppManagerApi implements AppManager {
         mailServerProperties.put("mail.smtp.auth", "true");
         mailServerProperties.put("mail.store.protocol", "imaps");
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
-        Session session = Session.getDefaultInstance(mailServerProperties, null);
+        session = Session.getDefaultInstance(mailServerProperties, null);
         authHelper = new AuthHelperApi(session);
         inboxMail = new InboxMailApi(session);
         sendMail = new SendMailApi(session);
@@ -40,5 +41,10 @@ public class AppManagerApi implements AppManager {
     @Override
     public SendMail getSendMailHelper() {
         return sendMail;
+    }
+
+    @Override
+    public void stop() {
+        //ignore
     }
 }

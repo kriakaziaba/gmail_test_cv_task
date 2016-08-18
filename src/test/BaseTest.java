@@ -1,3 +1,4 @@
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -12,7 +13,7 @@ public class BaseTest {
     //https://crunchify.com/java-mailapi-example-send-an-email-via-gmail-smtp/
     @BeforeSuite
     @Parameters({"appType", "browser"})
-    public void bfs(@Optional("api") String appType, @Optional("ch") String browser){
+    public void bfs(@Optional("selenium") String appType, @Optional("ch") String browser){
         switch (appType){
             case "selenium":
                 default:
@@ -22,5 +23,10 @@ public class BaseTest {
                 app = new AppManagerApi();
                 break;
         }
+    }
+
+    @AfterSuite
+    public void afs(){
+        app.stop();
     }
 }

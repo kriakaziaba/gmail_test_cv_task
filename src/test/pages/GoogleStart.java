@@ -13,13 +13,7 @@ public class GoogleStart extends BasePage {
     @FindBy(css = "div>a[href^='https://mail.google.com']")
     private WebElement linkGmail;
 
-    public HelpPage goToGmail(){
+    public void goToGmail(){
         linkGmail.click();
-        try {
-            Thread.sleep(2000);//todo delete
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return PageFactory.initElements(driver, HelpPage.class);
     }
 }
