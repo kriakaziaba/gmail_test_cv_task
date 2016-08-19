@@ -27,15 +27,7 @@ public class AppManagerWebDriver implements AppManager {
     private SendMail sendMail;
 
     public AppManagerWebDriver(String browser){
-        Properties props = new Properties();
-        try {
-            props.load(WorkWithFiles.class.getResourceAsStream("/project.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String path = props.getProperty("project.build.testOutputDirectory");
-        String sep = System.getProperty("file.separator");
-        String destFilePath = path + sep + "temp" + sep;
+        String destFilePath = WorkWithFiles.directoryOfTest() + "temp" + System.getProperty("file.separator");
 
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -61,6 +53,7 @@ public class AppManagerWebDriver implements AppManager {
         authHelper = new AuthHelperWebDriver(driver, pages);
         inboxMail = new InboxMailWebDriver(driver, pages);
         sendMail = new SendMailWebDriver(driver, pages);
+        driver.manage().window().maximize();
     }
 
 

@@ -43,14 +43,7 @@ public class InboxMailApi implements InboxMail {
                     for (int i = 0; i < multiPart.getCount(); i++) {
                         MimeBodyPart part = (MimeBodyPart) multiPart.getBodyPart(i);
                         if (Part.ATTACHMENT.equalsIgnoreCase(part.getDisposition())) {
-                            Properties props = new Properties();
-                            try {
-                                props.load(WorkWithFiles.class.getResourceAsStream("/project.properties"));
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            String path = props.getProperty("project.build.testOutputDirectory");
-                            String destFilePath = path + System.getProperty("file.separator") + "receivedFile";
+                            String destFilePath = WorkWithFiles.directoryOfTest() + "receivedFile";
                             part.saveFile(destFilePath);
                             lt.setPathToAttachment("receivedFile");
 //                            FileOutputStream output = new FileOutputStream(destFilePath);

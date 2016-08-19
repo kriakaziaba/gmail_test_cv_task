@@ -17,6 +17,8 @@ public class SendMailWebDriver extends WebDriverBased implements SendMail {
 
     @Override
     public void sendMail(Letter letter, String fileName) {
-
+        pages.inbox.compose();
+        pages.compose.fillAndSend(letter);
+        pages.compose.attachFile(fileName);
     }
 }

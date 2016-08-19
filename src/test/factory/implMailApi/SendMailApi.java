@@ -2,6 +2,7 @@ package factory.implMailApi;
 
 import data.Letter;
 import factory.interfaces.SendMail;
+import utils.WorkWithFiles;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -36,14 +37,7 @@ public class SendMailApi implements SendMail {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(letter.getTo().getMail()));
             message.setSubject(letter.getSubject());
             if ((fileName != null) && !fileName.isEmpty()) {
-                Properties props = new Properties();
-                try {
-                    props.load(this.getClass().getResourceAsStream("/project.properties"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                String sep = System.getProperty("file.separator");
-                String path = props.getProperty("project.build.testOutputDirectory") + sep + fileName;
+                String path = WorkWithFiles.directoryOfTest() + fileName;
                 BodyPart messageBodyPart = new MimeBodyPart();
                 messageBodyPart.setText(letter.getMessage());
                 Multipart multipart = new MimeMultipart();

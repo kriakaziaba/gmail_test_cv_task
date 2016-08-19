@@ -38,4 +38,16 @@ public class WorkWithFiles {
         }
         return list;
     }
+
+    public static String directoryOfTest(){
+        Properties props = new Properties();
+        try {
+            props.load(WorkWithFiles.class.getResourceAsStream("/project.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String path = props.getProperty("project.build.testOutputDirectory");
+        String sep = System.getProperty("file.separator");
+        return path + sep;
+    }
 }

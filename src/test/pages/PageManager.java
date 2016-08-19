@@ -11,7 +11,7 @@ public class PageManager {
     public AboutPage aboutPage;
     public Inbox inbox;
     public LetterPage letterPage;
-    public NewLetter newLetter;
+    public Compose compose;
     public PasswordEnter passwordEnter;
     public SignIn signIn;
 
@@ -21,7 +21,7 @@ public class PageManager {
         aboutPage = initElements(new AboutPage(driver));
         inbox = initElements(new Inbox(driver));
         letterPage = initElements(new LetterPage(driver));
-        newLetter = initElements(new NewLetter(driver));
+        compose = initElements(new Compose(driver));
         passwordEnter = initElements(new PasswordEnter(driver));
         googleStart = initElements(new GoogleStart(driver));
         signIn = initElements(new SignIn(driver));

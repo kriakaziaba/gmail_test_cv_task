@@ -22,6 +22,12 @@ public class Inbox extends BasePage {
     @FindBy(css = "a.gb_Fa.gb_Ce")
     WebElement btnExit;
 
+    @FindBy(css = "div.z0>div")
+    WebElement btnCompose;
+
+    @FindBy(css = "div.Hd")
+    WebElement popupCompose;
+
     public boolean isOnPage() {
         return driver.findElements(bntLogo).size() == 1;
     }
@@ -34,5 +40,10 @@ public class Inbox extends BasePage {
         linkAvatar.click();
         wait.until(ExpectedConditions.visibilityOf(popup));
         btnExit.click();
+    }
+
+    public void compose() {
+        btnCompose.click();
+        wait.until(ExpectedConditions.visibilityOf(popupCompose));
     }
 }

@@ -17,7 +17,7 @@ public class TestCases1 extends BaseTest {
     @DataProvider
     public Object[][] sendFile() {
         return new Object[][]{
-                {user1, user2, LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME), "Hi", "somefile"}
+                {user1, user2, LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME), "Hi", "D:\\temp\\gmail_test_cv_task\\target\\test-classes\\somefile"}
         };
     }
 
@@ -64,7 +64,7 @@ public class TestCases1 extends BaseTest {
         app.getAuthHelper().logOut();
         app.getAuthHelper().loginAs(letterSend.getTo());
         Letter letterReceived = app.getInboxMailHelper().openLetterBySubject(letterSend.getTo(), subj);
-        app.getInboxMailHelper().saveAttachedFile(letterReceived);
+        String path = app.getInboxMailHelper().saveAttachedFile(letterReceived);
         Assert.assertEquals(letterReceived.getMessage(), letterSend.getMessage());
         Assert.assertEquals(letterReceived.getSubject(), letterSend.getSubject());
         Assert.assertEquals(letterReceived.getFrom(), letterSend.getFrom());
