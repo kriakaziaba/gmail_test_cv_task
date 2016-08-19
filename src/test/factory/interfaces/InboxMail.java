@@ -6,5 +6,5 @@ import data.User;
 public interface InboxMail {
     Letter openLetterBySubject(User user, String subject);
 
-    String saveAttachedFile(Letter letter);
+    String saveAttachedFile(Letter letter, User user);
 }

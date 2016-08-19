@@ -1,17 +1,25 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.not;
+import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
 
 public class Inbox extends BasePage {
     public Inbox(RemoteWebDriver driver) {
         super(driver);
     }
 
-    By bntLogo = By.id("gbq1");
+    By btnLogo = By.id("gbq1");
+
+    @FindBy(id = "gbq1")
+    WebElement btnLogoElement;
 
     @FindBy(css = "a.gb_b.gb_8a")
     WebElement linkAvatar;
@@ -29,11 +37,19 @@ public class Inbox extends BasePage {
     WebElement popupCompose;
 
     public boolean isOnPage() {
-        return driver.findElements(bntLogo).size() == 1;
+        return wait.until(not(stalenessOf(driver.findElement(btnLogo))));
     }
 
     public void openLetterBySubject(String subject) {
-        driver.findElement(By.xpath("//tbody/tr/td[position()=6 and contains(.,'" + subject + "')]")).click();
+        int i = 0;
+        while (i++<5) {
+            try {
+                driver.findElement(By.xpath("//tbody/tr/td[position()=6 and contains(.,'" + subject + "')]")).click();
+                return;
+            } catch (NoSuchElementException|ElementNotVisibleException ignore) {
+                driver.navigate().refresh();
+            }
+        }
     }
 
     public void logOut() {

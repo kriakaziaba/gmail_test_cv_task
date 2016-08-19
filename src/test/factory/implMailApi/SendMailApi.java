@@ -31,21 +31,20 @@ public class SendMailApi implements SendMail {
     }
 
     @Override
-    public void sendMail(Letter letter, String fileName) {
+    public void sendMail(Letter letter, String filePath) {
         try {
             MimeMessage message = new MimeMessage(session);
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(letter.getTo().getMail()));
             message.setSubject(letter.getSubject());
-            if ((fileName != null) && !fileName.isEmpty()) {
-                String path = WorkWithFiles.directoryOfTest() + fileName;
+            if ((filePath != null) && !filePath.isEmpty()) {
                 BodyPart messageBodyPart = new MimeBodyPart();
                 messageBodyPart.setText(letter.getMessage());
                 Multipart multipart = new MimeMultipart();
                 multipart.addBodyPart(messageBodyPart);
                 messageBodyPart = new MimeBodyPart();
-                DataSource source = new FileDataSource(path);
+                DataSource source = new FileDataSource(filePath);
                 messageBodyPart.setDataHandler(new DataHandler(source));
-                messageBodyPart.setFileName(path);
+                messageBodyPart.setFileName(filePath);
                 multipart.addBodyPart(messageBodyPart);
                 message.setContent(multipart);
             }

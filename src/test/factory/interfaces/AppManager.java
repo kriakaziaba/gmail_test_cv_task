@@ -5,4 +5,5 @@ public interface AppManager {
     InboxMail getInboxMailHelper();
     SendMail getSendMailHelper();
     void stop();
+    void preconditions();
 }

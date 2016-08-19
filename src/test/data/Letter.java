@@ -5,7 +5,6 @@ public class Letter  {
     private User from;
     private String subject;
     private String message;
-    private String file;
 
     public Letter(){
         to = new User("","");
@@ -51,11 +50,4 @@ public class Letter  {
         this.message = message;
     }
 
-    public String getPathToAttachment() {
-        return file;
-    }
-
-    public void setPathToAttachment(String pathToAttachment) {
-        this.file = pathToAttachment;
-    }
 }

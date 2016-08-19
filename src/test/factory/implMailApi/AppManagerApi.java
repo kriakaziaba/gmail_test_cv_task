@@ -47,4 +47,9 @@ public class AppManagerApi implements AppManager {
     public void stop() {
         //ignore
     }
+
+    @Override
+    public void preconditions() {
+        //ignore
+    }
 }

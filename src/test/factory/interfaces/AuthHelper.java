@@ -3,7 +3,11 @@ package factory.interfaces;
 import data.User;
 
 public interface AuthHelper {
-    boolean loginAs(User user);
+    void goToGmail();
+
+    boolean loginAsPositive(User user);
 
     void logOut();
+
+    void changeUser();
 }

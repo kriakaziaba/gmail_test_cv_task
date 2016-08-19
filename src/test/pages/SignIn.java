@@ -26,6 +26,12 @@ public class SignIn extends BasePage {
     @FindBy(id = "signIn")
     WebElement bntSignIn;
 
+    @FindBy(id = "account-chooser-link")
+    WebElement linkChangeAccount;
+
+    @FindBy(id = "account-chooser-add-account")
+    WebElement btnAddAccount;
+
     public boolean isOnPage() {
         return driver.findElements(h1).size() == 1;
     }
@@ -38,5 +44,12 @@ public class SignIn extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(txbPsw));
         txbPsw.sendKeys(user.getPassword());
         bntSignIn.click();
+    }
+
+    public void switchAccount() {
+        if (driver.findElements(By.id("account-chooser-link")).size()>0) {
+            linkChangeAccount.click();
+            btnAddAccount.click();
+        }
     }
 }

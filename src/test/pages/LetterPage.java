@@ -6,13 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import tests.BaseTest;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class LetterPage extends BasePage {
     public LetterPage(RemoteWebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "(//div[@class='Bk'])[last()]//span[@class='go']")
+    @FindBy(css = "h3.iw>span.gD")
     WebElement textFrom;
 
     @FindBy(xpath = "(//div[@class='Bk'])[last()]//span[@class='g2']")
@@ -34,8 +39,9 @@ public class LetterPage extends BasePage {
     WebElement textAttachmentName;
 
     public Letter getLetterInfo() {
+        wait.until(ExpectedConditions.visibilityOf(textSubject));
         String subj = textSubject.getText();
-        String from = textFrom.getText().replace("<","").replace(">","");
+        String from = textFrom.getAttribute("email");
         String to = textTo  .getAttribute("email");
         String message = textMessage.getText();
         return new Letter(new User(to,""), new User(from,""), subj, message);
@@ -43,8 +49,12 @@ public class LetterPage extends BasePage {
 
     public String saveFile() {
         new Actions(driver).moveToElement(linkAttachment).click(btnDownload).perform();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         String fileName = textAttachmentName.getText();
-        String path = driver.getCapabilities().getCapability("browser.download.folderlist").toString();
-        return path + System.getProperty("file.separator") + fileName;
+        return BaseTest.downloadedDirectory + fileName;
     }
 }

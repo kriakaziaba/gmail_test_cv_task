@@ -17,7 +17,12 @@ public class AuthHelperApi implements AuthHelper {
     }
 
     @Override
-    public boolean loginAs(User user) {
+    public void goToGmail() {
+        //ignore
+    }
+
+    @Override
+    public boolean loginAsPositive(User user) {
         if ((transport != null) && transport.isConnected()){
             logOut();
         }
@@ -39,5 +44,10 @@ public class AuthHelperApi implements AuthHelper {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void changeUser() {
+        //ignore
     }
 }
