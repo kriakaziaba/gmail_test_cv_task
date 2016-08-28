@@ -11,7 +11,12 @@ public class TestCases1 extends BaseTest {
 
     @BeforeMethod
     public void cleanUp(){
-        app.preconditions();
+        try {
+            app.preconditions();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Test(dataProvider = "forAuth")
